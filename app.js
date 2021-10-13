@@ -10,6 +10,19 @@ document.addEventListener('DOMContentLoaded' , () => {
     let gap = 430
 
 
+    function gameOver() {
+    isGameOver = true
+    while (grid.firstChild) {
+      console.log('remove')
+      grid.removeChild(grid.firstChild)
+    }
+    grid.innerHTML = score
+    clearInterval(upTimerId)
+    clearInterval(downTimerId)
+    clearInterval(leftTimerId)
+    clearInterval(rightTimerId)
+  }
+    
     function startGame() {
         birdBottom -= gravity
         bird.style.bottom = birdBottom + 'px'
